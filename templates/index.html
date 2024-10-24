@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommender</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <h2 class="navbar-title">Movie Recommender</h2>
+            <ul class="navbar-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <h1>Movie Recommender System</h1>
+        
+        <form action="/recommend" method="POST">
+            <label for="movie_name">Enter Movie Name:</label>
+            <input type="text" id="movie_name" name="movie_name" required><br><br>
+            <button type="submit">Get Recommendations</button>
+        </form>
+
+        {% if recommendations %}
+        <h2>Recommendations for "{{ movie_name }}"</h2>
+        <div class="recommendations">
+            {% for movie in recommendations %}
+            <div class="card">
+                <h3>{{ movie.title }}</h3>
+                <p><strong>Genre:</strong> {{ movie.genres | join(', ') }}</p>
+                <p><strong>Cast:</strong> {{ movie.cast | join(', ') }}</p>
+                <p><strong>Crew:</strong> {{ movie.crew | join(', ') }}</p>
+                <button class="collapsible">Show Tags</button>
+                <div class="content">
+                    <p><strong>Tags:</strong> {{ movie.tags }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </main>
+
+    <script>
+        var collapsibles = document.getElementsByClassName("collapsible");
+
+        for (let i = 0; i < collapsibles.length; i++) {
+            collapsibles[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    content.style.display = "block";
+                }
+            });
+        }
+    </script>
+</body>
+</html>
