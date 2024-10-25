@@ -1,0 +1,65 @@
+.about-container {
+    background-color: #fce4ec; /* Light pink background */
+    padding: 40px;
+    color: #3e2723; /* Dark brown text */
+}
+
+.about-container h1, .about-container h2 {
+    color: #4a148c; /* Purple */
+}
+
+.about-container p, .about-container ul {
+    margin: 20px 0;
+}
+
+.about-container ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+footer {
+    margin-top: 50px;
+    text-align: center;
+    color: #3e2723;
+}
+
+.navbar {
+    background-color: #e91e63; /* Pink */
+    padding: 15px;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-title {
+    color: white;
+    padding-left: 100px;
+}
+
+.navbar-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    padding-right: 30px;
+}
+
+.navbar-links li {
+    margin-left: 20px;
+}
+
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.navbar-links a:hover {
+    color: #f1f8e9; /* Light green */
+}
+
+h1 {
+    color: #4a148c; /* Purple */
+}
